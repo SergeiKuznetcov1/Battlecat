@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Stats
   layers:
   - Default
   - TransparentFX
@@ -11,15 +12,15 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Ignore
+  - PlayerStats
+  - EnemyAttack
+  - Enemy
+  - PlayerAttack
+  - Destructable
+  - Ladders
   - 
   - 
   - 
@@ -38,6 +39,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 248187465
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 594032021
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2164396279
+    locked: 0
+  - name: Enemy
+    uniqueID: 2701557905
+    locked: 0
+  - name: Player
+    uniqueID: 1969823921
+    locked: 0
+  - name: ForeGround
+    uniqueID: 675100781
     locked: 0
