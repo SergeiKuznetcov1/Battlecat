@@ -20,7 +20,8 @@ public class PlayerMoveControls : MonoBehaviour
     private bool _grounded;
     public bool knockBack;
     public bool hasControl = true;
-    [Header("Ladder")]
+    [Header("Ladder or Platform")]
+    public bool onPlatform;
     public bool onLadders;
     public float climbSpeed;
     public float climbHorizontalSpeed;
@@ -48,6 +49,7 @@ public class PlayerMoveControls : MonoBehaviour
     public PolygonCollider2D standStatsColl;
     public BoxCollider2D crouchColl;
     public BoxCollider2D crouchStatColl;
+    public PlayerStats playerStats;
     private PlayerAttackControls _pAC;
 
     public float crouchSpeed;
@@ -151,7 +153,7 @@ public class PlayerMoveControls : MonoBehaviour
 
     private void CrouchPlayerConditions() {
         if (_gI.tryToCrouch) {
-            if (_grounded && _pAC.attackStarted == false && onLadders == false) {
+            if (_grounded && _pAC.attackStarted == false && onLadders == false && onPlatform == false) {
                 crouch = true;
                 standColl.enabled = false;
                 standStatsColl.enabled = false;
@@ -164,7 +166,8 @@ public class PlayerMoveControls : MonoBehaviour
             crouchColl.enabled = false;
             crouchStatColl.enabled = false;
             standColl.enabled = true;
-            standStatsColl.enabled = true;
+            if (playerStats.health > 0) 
+                standStatsColl.enabled = true;
         }
     }
     private void WallJump() {

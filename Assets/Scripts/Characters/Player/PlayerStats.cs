@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 public class PlayerStats : MonoBehaviour
 {
+    private PolygonCollider2D _polygonCol;
 	public float maxHealth;
     public float health;
     public bool canTakeDamage = true;
@@ -12,13 +13,13 @@ public class PlayerStats : MonoBehaviour
     private PlayerMoveControls _playerMove;
     private PlayerAttackControls _pAC;
     private void Start() {
+        _polygonCol = GetComponent<PolygonCollider2D>();
         _animator = GetComponentInParent<Animator>();
         _playerMove = GetComponentInParent<PlayerMoveControls>();
         _pAC = GetComponentInParent<PlayerAttackControls>();
         health = PlayerPrefs.GetFloat("HealthKey", maxHealth);
         UpdateHealthUI();
     }
-
     public void TakeDamage(float damage) {
         if (canTakeDamage) {
             health -= damage;
@@ -27,7 +28,7 @@ public class PlayerStats : MonoBehaviour
             UpdateHealthUI();
             _pAC.ResetAttack();
             if (health <= 0) {
-                GetComponent<PolygonCollider2D>().enabled = false;
+                _polygonCol.enabled = false;
                 GetComponentInParent<GatherInput>().DisableControls();
                 PlayerPrefs.SetFloat("HealthKey", maxHealth);
                 GameManager.ManagerRestartLevel();

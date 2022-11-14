@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3683239809654056103}
   - component: {fileID: 3683239809654056102}
   - component: {fileID: 3683239809654056097}
+  - component: {fileID: 1999723069}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -209,6 +210,7 @@ MonoBehaviour:
   rightPoint: {fileID: 3683239810391837559}
   knockBack: 0
   hasControl: 1
+  onPlatform: 0
   onLadders: 0
   climbSpeed: 3
   climbHorizontalSpeed: 1
@@ -224,6 +226,7 @@ MonoBehaviour:
   standStatsColl: {fileID: 3683239811067728207}
   crouchColl: {fileID: 3683239809654056097}
   crouchStatColl: {fileID: 3683239811067728201}
+  playerStats: {fileID: 3683239811067728206}
   crouchSpeed: 1.5
 --- !u!95 &3683239809654056100
 Animator:
@@ -300,6 +303,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6864056, y: 0.86113214}
   m_EdgeRadius: 0
+--- !u!114 &1999723069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683239809654056093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60892100e0935d84e81591f68c66bb43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallThrough: 0
 --- !u!1 &3683239810196335666
 GameObject:
   m_ObjectHideFlags: 0

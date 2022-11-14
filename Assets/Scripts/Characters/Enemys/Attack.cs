@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PatrollingAttack : EnemyAttack
+public class Attack : EnemyAttack
 {
     private PlayerMoveControls _playerMoveControl; 
     public float forceX;
@@ -9,6 +9,6 @@ public class PatrollingAttack : EnemyAttack
     public override void SpecialAttack()
     {
         _playerMoveControl = _playerStats.GetComponentInParent<PlayerMoveControls>();
-        StartCoroutine(_playerMoveControl.KnockBackCO(forceX, forceY, duration, transform.parent));
+        StartCoroutine(_playerMoveControl.KnockBackCO(forceX, forceY, duration, transform));
     }
 }

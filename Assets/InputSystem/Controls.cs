@@ -176,7 +176,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6eb0234f-76fe-45ed-ad06-46d2a4f93014"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
