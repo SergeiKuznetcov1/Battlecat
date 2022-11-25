@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  startingPoint: 1
+  startingPoint: 0
   points:
   - {fileID: 8021799775990847767}
   - {fileID: 8021799777623663437}

@@ -51,8 +51,9 @@ public class PlayerMoveControls : MonoBehaviour
     public BoxCollider2D crouchStatColl;
     public PlayerStats playerStats;
     private PlayerAttackControls _pAC;
-
     public float crouchSpeed;
+    [Header("Door")]
+    public bool reachedDoor;
 
     private void Start() {
         _gI = GetComponent<GatherInput>();
@@ -161,7 +162,7 @@ public class PlayerMoveControls : MonoBehaviour
                 crouchStatColl.enabled = true;
             }
         }
-        else if (_forceCrouch == false) {
+        else if (_forceCrouch == false && reachedDoor == false) {
             crouch = false;
             crouchColl.enabled = false;
             crouchStatColl.enabled = false;
@@ -250,5 +251,10 @@ public class PlayerMoveControls : MonoBehaviour
         yield return new WaitForSeconds(duration);
         knockBack = false;
         _rb.velocity = Vector2.zero;
+    }
+
+    public void KnockUp(float forceY) {
+        _rb.velocity = Vector2.zero;
+        _rb.AddForce(new Vector2(0.0f, forceY), ForceMode2D.Impulse);
     }
 }

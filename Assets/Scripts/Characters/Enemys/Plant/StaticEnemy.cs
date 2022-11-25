@@ -33,5 +33,6 @@ public class StaticEnemy : Enemy
     public void SpawnBullet() {
         GameObject bullet = Instantiate(_bulletPrefab, _bulletSP.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.right * _bulletSpeed, ForceMode2D.Impulse);
+        GetComponent<AudioSource>().Play();
     }
 }

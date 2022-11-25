@@ -10,7 +10,7 @@ public class GatherInput : MonoBehaviour
     public bool tryToClimb;
     public bool tryToWallSlide;
     public bool tryToCrouch;
-
+    public bool nextDialogue;
     private void Awake() {
         _myControls = new Controls();
     }
@@ -31,6 +31,9 @@ public class GatherInput : MonoBehaviour
         _myControls.Player.Crouch.performed += TryCrouch;
         _myControls.Player.Crouch.canceled += StopCrouch;
 
+        _myControls.Player.ContinueDialogue.performed += NextDialoguePress;
+        _myControls.Player.ContinueDialogue.canceled += NextDialogueRelease;
+
         _myControls.Player.Enable();
     }
 
@@ -49,6 +52,9 @@ public class GatherInput : MonoBehaviour
 
         _myControls.Player.Crouch.performed -= TryCrouch;
         _myControls.Player.Crouch.canceled -= StopCrouch;
+
+        _myControls.Player.ContinueDialogue.performed -= NextDialoguePress;
+        _myControls.Player.ContinueDialogue.canceled -= NextDialogueRelease;
 
         _myControls.Player.Disable();
     }
@@ -130,5 +136,13 @@ public class GatherInput : MonoBehaviour
 
     private void StopCrouch(InputAction.CallbackContext ctx) {
         tryToCrouch = false;
+    }
+
+    private void NextDialoguePress(InputAction.CallbackContext ctx) {
+        nextDialogue = true;
+    }
+
+    private void NextDialogueRelease(InputAction.CallbackContext ctx) {
+        nextDialogue = false;
     }
 }
