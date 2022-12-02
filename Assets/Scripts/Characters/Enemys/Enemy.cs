@@ -13,10 +13,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage) {
         health -= damage;
-        HurtSequence();
         if (health <= 0) {
             DeathSequence();
         }
+        HurtSequence();
     }
 
     public virtual void HurtSequence() {
